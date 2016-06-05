@@ -22,4 +22,5 @@ func tweet(args []string) {
 
 	api := NewApi()
 	api.PostTweet(tweetMessage, nil)
+
 }

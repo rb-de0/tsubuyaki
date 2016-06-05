@@ -6,8 +6,10 @@ import (
 	"errors"
 	"fmt"
 	"os"
+	"strings"
 
 	"github.com/ChimeraCoder/anaconda"
+	"github.com/kardianos/osext"
 )
 
 type Config struct {
@@ -32,7 +34,21 @@ func NewApi() *anaconda.TwitterApi {
 }
 
 func loadConfig() (Config, error) {
-	fp, err := os.Open("./config.json")
+	path, extErr := osext.Executable()
+
+	if extErr != nil {
+		return Config{}, errors.New("Error, could not find a excutable path.")
+	}
+
+	splitPath := strings.Split(path, "/")
+	splitPath = splitPath[0 : len(splitPath)-1]
+
+	excutablePath := ""
+	for index := range splitPath {
+		excutablePath += splitPath[index] + "/"
+	}
+
+	fp, err := os.Open(excutablePath + "config.json")
 
 	if err != nil {
 		fp.Close()

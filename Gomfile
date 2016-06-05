@@ -1,1 +1,2 @@
 gom 'github.com/ChimeraCoder/anaconda'
+gom 'github.com/kardianos/osext'
