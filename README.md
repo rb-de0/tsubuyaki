@@ -1,5 +1,7 @@
 #### 仕事中にターミナルからつぶやいちゃお的な何か
 
+[![Build Status](https://travis-ci.org/rb-de0/tsubuyaki.svg?branch=master)](https://travis-ci.org/rb-de0/tsubuyaki)
+
 ## Golangのバージョン
 以下の環境で開発・検証しました。
 
